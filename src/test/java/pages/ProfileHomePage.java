@@ -36,12 +36,3 @@ public class ProfileHomePage extends BasePage {
         return img.getAttribute("src");
     }
 
-    public ProfileHomePage(WebDriver driver) {
-        super(driver);
-    }
-
-    @Override
-    public boolean isPageOpen() {
-        return isExist(PROFILE_PIC);
-    }
-}

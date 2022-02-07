@@ -4,3 +4,6 @@
 Collaborators: 
 - github.com/r1vegd
 - github.com/alexandrsoloviev
+---
+                                   **Checklist**
+![img.png](src/test/resources/checklist.png)
