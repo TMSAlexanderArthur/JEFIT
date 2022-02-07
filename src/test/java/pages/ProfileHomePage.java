@@ -3,11 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ProfilePage extends BasePage {
+public class ProfileHomePage extends BasePage {
 
     public static final By PROFILE_PIC = By.id("leftProfilePicCell");
 
-    public ProfilePage(WebDriver driver) {
+    public ProfileHomePage(WebDriver driver) {
         super(driver);
     }
 
