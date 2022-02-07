@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
-    protected ProfilePage profilePage;
+    protected ProfileHomePage profileHomePage;
     protected GetJefitIOsAppPage getJefitIOsAppPage;
     protected GetJefitAndroidPage getJefitAndroidPage;
     protected WorkoutPlansPage workoutPlansPage;
@@ -33,7 +33,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
-        profilePage = new ProfilePage(driver);
+        profileHomePage = new ProfileHomePage(driver);
         getJefitIOsAppPage = new GetJefitIOsAppPage(driver);
         getJefitAndroidPage = new GetJefitAndroidPage(driver);
         workoutPlansPage = new WorkoutPlansPage(driver);
