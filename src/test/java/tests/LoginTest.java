@@ -27,7 +27,7 @@ public class LoginTest extends BaseTest{
                 .login()
                 .isPageOpen();
 
-        assertTrue(isProfilePageOpened,"Page opened");
+        assertTrue(isProfilePageOpened,"Page hasn't opened");
     }
 
     @Test(dataProvider = "incorrectLoginTest")
@@ -36,7 +36,6 @@ public class LoginTest extends BaseTest{
                 .open()
                 .loginWithsWrongData(login, password)
                 .isPageOpen();
-
 
         assertEquals(loginPage.getErrorMessage(), errorMessage);
     }
