@@ -1,9 +1,6 @@
 # JEFIT
-*This is thesis project for "Software automated testing in Java" by TeachMeSkills course.*
+**This is thesis project for "Software automated testing in Java" by TeachMeSkills course.**
 
-Collaborators:
+Collaborators: 
 - github.com/r1vegd
 - github.com/alexandrsoloviev
----
-                                   *Checklist*
-![img.png](src/test/resources/checklist.png)
