@@ -9,13 +9,14 @@ public class Button {
 
     String buttonLocator = "//input[@value = '%s']";
 
+    public Button(WebDriver driver, String value) {
+        this.driver = driver;
+        this.value = value;
+    }
 
     public void click() {
         driver.findElement(By.xpath(String.format(buttonLocator, value))).click();
     }
 
-    public Button(WebDriver driver, String value) {
-        this.driver = driver;
-        this.value = value;
-    }
+
 }

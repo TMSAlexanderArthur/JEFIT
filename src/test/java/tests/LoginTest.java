@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
     @DataProvider(name = "incorrectLoginTest")
     public Object[][] incorrectLoginTest() {
@@ -22,12 +22,12 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void loginTest(){
+    public void loginTest() {
         boolean isProfilePageOpened = loginPage.open()
                 .login()
                 .isPageOpen();
 
-        assertTrue(isProfilePageOpened,"Page hasn't opened");
+        assertTrue(isProfilePageOpened, "Page hasn't opened");
     }
 
     @Test(dataProvider = "incorrectLoginTest")

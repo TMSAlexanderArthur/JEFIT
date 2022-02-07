@@ -9,14 +9,13 @@ public class ProfileHomeTest extends BaseTest {
     @Test
     public void uploadPhotoTest() {
         loginPage.open()
-                 .login();
+                .login();
 
         profileHomePage.uploadProfilePic();
 
         String src = profileHomePage.fileIsUploaded();
         assertTrue(src.contains("avatar"), "Picture not uploaded");
     }
-
 
 }
 

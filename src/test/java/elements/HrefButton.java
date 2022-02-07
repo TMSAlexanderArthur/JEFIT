@@ -9,14 +9,15 @@ public class HrefButton {
 
     String hrefLocator = "//a[text()='%s']";
 
-    public void click() {
-        driver.findElement(By.xpath(String.format(hrefLocator, text))).click();
-    }
-
     public HrefButton(WebDriver driver, String text) {
         this.driver = driver;
         this.text = text;
     }
+
+    public void click() {
+        driver.findElement(By.xpath(String.format(hrefLocator, text))).click();
+    }
+
 
 }
 

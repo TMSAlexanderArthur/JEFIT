@@ -22,10 +22,9 @@ public class GetJefitIOsAppPage extends BasePage {
     public GetJefitIOsAppPage getAppleStoreApp() {
         driver.findElement(GET_JEFIT_APP_BUTTON).click();
         new HrefButton(driver, "iOS App").click();
-        ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
         return new GetJefitIOsAppPage(driver);
     }
-
 
 }

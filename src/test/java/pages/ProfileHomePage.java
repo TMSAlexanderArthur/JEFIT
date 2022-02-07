@@ -11,28 +11,35 @@ import org.openqa.selenium.WebElement;
 import java.io.File;
 
 public class ProfileHomePage extends BasePage {
-
     static Faker faker = new Faker();
-
     public static final By PROFILE_PIC = By.xpath("//img[@class ='leftProfilePic']");
     public static final By SELECT_FILE_BUTTON = By.id("avatarupload");
 
+    public ProfileHomePage(WebDriver driver) {
+        super(driver);
+    }
 
-    public ProfileHomePage changeStatus(){
+    @Override
+    public boolean isPageOpen() {
+        return isExist(PROFILE_PIC);
+    }
+
+    public ProfileHomePage changeStatus() {
         new TextArea(driver, "statusinputbox").write(faker.chuckNorris().fact());
         return this;
     }
 
-    public ProfileHomePage uploadProfilePic(){
-        new HrefButton(driver,"Edit").click();
+    public ProfileHomePage uploadProfilePic() {
+        new HrefButton(driver, "Edit").click();
         File file = new File("src/test/resources/filesToUpload/qa-2-min (1).png");
         driver.findElement(SELECT_FILE_BUTTON).sendKeys(file.getAbsolutePath());
         new Button(driver, "Upload Photo").click();
         return this;
     }
-    
-    public String fileIsUploaded(){
+
+    public String fileIsUploaded() {
         WebElement img = driver.findElement(PROFILE_PIC);
         return img.getAttribute("src");
     }
+}
 
