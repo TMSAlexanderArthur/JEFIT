@@ -6,15 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-public class Button {
 
+public class Button {
     WebDriver driver;
     String value;
 
     String buttonLocator = "//input[@value = '%s']";
 
 
-    public void click(){
+    public void click() {
         driver.findElement(By.xpath(String.format(buttonLocator, value))).click();
     }
 

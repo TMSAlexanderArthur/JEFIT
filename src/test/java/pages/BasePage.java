@@ -17,7 +17,6 @@ import utils.PropertyReader;
 @NoArgsConstructor
 @Data
 public abstract class BasePage {
-
     WebDriver driver;
     WebDriverWait wait;
 
@@ -28,6 +27,7 @@ public abstract class BasePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, 20);
     }
+
     @Step("Be sure that page is open")
     public abstract boolean isPageOpen();
 
