@@ -18,11 +18,11 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public ProfilePage login(){
+    public ProfileHomePage login(){
         new Input(driver, "Username or Email").write(email);
         new Input(driver, "Password").write(password);
         new Button(driver, "Login").click();
-        return new ProfilePage(driver);
+        return new ProfileHomePage(driver);
     }
 
     public LoginPage loginWithsWrongData(String login,String password){

@@ -23,7 +23,6 @@ public abstract class BaseTest {
     protected WorkoutPlansPage workoutPlansPage;
 
 
-
     @BeforeMethod(description = "Setup and start browser")
     public void setUp(ITestContext context) {
         WebDriverManager.chromedriver().setup();
