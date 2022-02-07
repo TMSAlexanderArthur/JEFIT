@@ -1,9 +1,5 @@
 package elements;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class Button {
