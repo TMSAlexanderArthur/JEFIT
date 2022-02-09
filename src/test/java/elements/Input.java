@@ -14,12 +14,11 @@ public class Input {
         this.name = name;
     }
 
-
     public void write(String text) {
         driver.findElement(By.xpath(String.format(inputLocator, this.name))).sendKeys(text);
     }
 
-    public void clear(){
+    public void clear() {
         driver.findElement(By.xpath(String.format(inputLocator, this.name))).clear();
     }
 
