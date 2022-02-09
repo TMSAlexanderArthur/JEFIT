@@ -25,7 +25,7 @@ public class ProfileHomeTest extends BaseTest {
         profileHomePage.changeStatus();
 
 
-        assertEquals( profileHomePage.getStatusText(), "Status : " + profileHomePage.returnFakerText(), "The text doesn't match");
+        assertEquals(profileHomePage.getStatusText(), "Status : " + profileHomePage.returnFakerText(), "The text doesn't match");
     }
 
     @Test
@@ -34,7 +34,7 @@ public class ProfileHomeTest extends BaseTest {
                 .login();
         profileHomePage.deleteStatus();
 
-        assertEquals(profileHomePage.getStatusText(), "Status" , "Status is not deleted");
+        assertEquals(profileHomePage.getStatusText(), "Status", "Status is not deleted");
     }
 
     @Test
@@ -50,4 +50,3 @@ public class ProfileHomeTest extends BaseTest {
     }
 
 }
-

@@ -67,4 +67,3 @@ public class ProfileHomePage extends BasePage {
     }
 
 }
-
