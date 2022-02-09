@@ -1,26 +1,26 @@
 package elements;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
 public class Input {
     WebDriver driver;
-    String label;
-    String inputLocator = "//input[@placeholder='  %s']";
+    String name;
+    String inputLocator = "//input[@name = '%s']";
 
-    public Input(WebDriver driver, String label) {
+    public Input(WebDriver driver, String name) {
         this.driver = driver;
-        this.label = label;
+        this.name = name;
     }
 
 
     public void write(String text) {
-        driver.findElement(By.xpath(String.format(inputLocator, this.label))).sendKeys(text);
+        driver.findElement(By.xpath(String.format(inputLocator, this.name))).sendKeys(text);
+    }
+
+    public void clear(){
+        driver.findElement(By.xpath(String.format(inputLocator, this.name))).clear();
     }
 
 }
