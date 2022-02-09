@@ -6,22 +6,21 @@ import org.openqa.selenium.WebDriver;
 public class SelectDropdown {
 
     WebDriver driver;
-    String label;
+    String name;
     String selectLocator = "//select[@name='%s']";
     String selectedOptionLocator = "//select[@name='%s']/option[@selected]";
 
-    public SelectDropdown(WebDriver driver, String label) {
+    public SelectDropdown(WebDriver driver, String name) {
         this.driver = driver;
-        this.label = label;
+        this.name = name;
     }
-
 
     public void click() {
-        driver.findElement(By.xpath(String.format(selectLocator, label))).click();
+        driver.findElement(By.xpath(String.format(selectLocator, name))).click();
     }
 
-    public void getSelectedOption() {
-        driver.findElement(By.xpath(String.format(selectedOptionLocator, label))).click();
+    public String getSavedSelectedOption() {
+        return driver.findElement(By.xpath(String.format(selectedOptionLocator, name))).getText();
     }
 
 
