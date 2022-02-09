@@ -17,5 +17,9 @@ public class TextArea {
         driver.findElement(By.xpath(String.format(textAreaLocator, this.name))).sendKeys(text);
     }
 
+    public void clear(){
+        driver.findElement(By.xpath(String.format(textAreaLocator, this.name))).clear();
+    }
+
 
 }
