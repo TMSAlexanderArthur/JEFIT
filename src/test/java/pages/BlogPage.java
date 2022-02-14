@@ -18,7 +18,7 @@ public class BlogPage extends BasePage {
 
     public BlogPage openBlogPage() {
         new HrefButton(driver, "Blog").click();
-        return new BlogPage(driver);
+        return this;
     }
 
 

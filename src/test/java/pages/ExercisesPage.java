@@ -19,7 +19,7 @@ public class ExercisesPage extends BasePage {
 
     public ExercisesPage openExercisePage() {
         new HrefButton(driver, "Exercises").click();
-        return new ExercisesPage(driver);
+        return this;
     }
 
     public AllExerciseDatabasePage openAllExerciseDatabase() {

@@ -18,6 +18,6 @@ public class GetElitePage extends BasePage {
 
     public GetElitePage openGetElitePage() {
         driver.findElement(GET_ELITE_MAIN_BUTTON).click();
-        return new GetElitePage(driver);
+        return this;
     }
 }
