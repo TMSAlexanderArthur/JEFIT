@@ -87,6 +87,7 @@ public class LogWorkoutTest extends BaseTest {
 
         assertTrue(trainingIsOpened, "Page is not opened");
 
-
     }
 }
+
+

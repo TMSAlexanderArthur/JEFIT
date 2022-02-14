@@ -31,8 +31,7 @@ public class LoginPage extends BasePage {
     }
 
     public ProfileHomePage login() {
-        new Input(driver, "vb_login_username").write(email)
-        ;
+        new Input(driver, "vb_login_username").write(email);
         new Input(driver, "vb_login_password").write(password);
         new Button(driver, "Login").click();
         log.info("Valid login and password entered and login button pressed");
