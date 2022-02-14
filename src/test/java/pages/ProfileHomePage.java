@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import elements.Button;
 import elements.HrefButton;
 import elements.TextArea;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 
+@Log4j2
 public class ProfileHomePage extends BasePage {
     Faker faker = new Faker();
     String text = faker.chuckNorris().fact();
@@ -31,26 +33,32 @@ public class ProfileHomePage extends BasePage {
 
     public void deleteStatus() {
         new Button(driver, "Post").click();
+        log.info("Delete status");
     }
 
     public void changeStatus() {
         new TextArea(driver, "statusinputbox").write(text);
         new Button(driver, "Post").click();
+        log.info("Change status");
     }
 
     public LoginPage signOut() {
         Actions action = new Actions(driver);
         WebElement we = driver.findElement(MY_JEFIT_SPAN);
         action.moveToElement(we).moveToElement(driver.findElement(SIGN_OUT_LINK)).click().build().perform();
+        log.info("Use action and sign out");
         return new LoginPage(driver);
     }
 
     public String returnFakerText() {
+        log.info("Return text : " + text);
         return text;
     }
 
     public String getStatusText() throws InterruptedException {
         Thread.sleep(3000);
+        log.debug("Sleep 3 seconds");
+        log.info("Get status text");
         return driver.findElement(STATUS_TEXT).getText();
     }
 
@@ -58,11 +66,13 @@ public class ProfileHomePage extends BasePage {
         new HrefButton(driver, "Edit").click();
         File file = new File("src/test/resources/filesToUpload/qa-2-min (1).png");
         driver.findElement(SELECT_FILE_BUTTON).sendKeys(file.getAbsolutePath());
+        log.info("Select a file: " + file.getName() + " path file: " + file.getAbsolutePath() + " to upload");
         new Button(driver, "Upload Photo").click();
     }
 
     public String fileIsUploaded() {
         WebElement img = driver.findElement(PROFILE_PIC);
+        log.info("File is uploaded");
         return img.getAttribute("src");
     }
 

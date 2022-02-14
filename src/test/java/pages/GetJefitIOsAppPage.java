@@ -24,7 +24,7 @@ public class GetJefitIOsAppPage extends BasePage {
         new HrefButton(driver, "iOS App").click();
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
-        return new GetJefitIOsAppPage(driver);
+        return this;
     }
 
 }

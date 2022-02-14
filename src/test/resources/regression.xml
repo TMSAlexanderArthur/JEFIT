@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="Test suite" parallel="tests">
-
-    <!--<listeners>
-        <listener class-name="tests.base.AnnotationTransformer"/>
-    </listeners>-->
-
-    <test name="login">
+<suite thread-count="2" name="Test suite" parallel="tests">
+    <test name="test 1">
         <classes>
             <class name="tests.LoginTest"/>
-
         </classes>
     </test> <!-- Test -->
-    <test name="account">
+    <test name="smoke">
         <classes>
-            <class name="tests.AccountTest"/>
-        </classes>
-    </test> <!-- Test -->
-
-    <test name="contact">
-        <classes>
-            <class name="tests.ContactTest"/>
+            <class name="tests.WorkoutPlansTest"/>
+            <class name="tests.NotificationsTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>
+
