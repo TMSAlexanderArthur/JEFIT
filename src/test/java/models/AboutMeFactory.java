@@ -6,7 +6,7 @@ public class AboutMeFactory {
 
     static Faker faker = new Faker();
 
-    public static AboutMe get(){
+    public static AboutMe get() {
         return AboutMe.builder()
                 .t1(faker.address().city())
                 .t2(faker.job().title())

@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import static pages.NotificationsPage.MY_JEFIT_SPAN;
 import static pages.SettingsProfileAppPage.SETTINGS_SPAN;
 
-public class SettingsMembershipPage extends BasePage{
+public class SettingsMembershipPage extends BasePage {
     public static final By ACCOUNT_TYPE = By.xpath("//div[@style='font-size: 18px;']");
 
     public SettingsMembershipPage(WebDriver driver) {

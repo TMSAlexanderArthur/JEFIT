@@ -18,7 +18,7 @@ public class WorkoutPlansPage extends BasePage {
 
     public WorkoutPlansPage openWorkoutPlans() {
         new HrefButton(driver, "Workout Plans").click();
-        return new WorkoutPlansPage(driver);
+        return this;
     }
 
 }

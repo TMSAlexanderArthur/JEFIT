@@ -2,8 +2,6 @@ package tests;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import utils.AllureUtils;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -37,7 +35,7 @@ public class LoginTest extends BaseTest {
                 .loginWithsWrongData(login, password)
                 .isPageOpen();
 
-        assertEquals(loginPage.getErrorMessage(), errorMessage);
+        assertEquals(loginPage.getErrorMessage(), errorMessage, "The text doesn't match");
     }
 
 

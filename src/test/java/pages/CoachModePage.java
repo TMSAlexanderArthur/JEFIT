@@ -18,7 +18,7 @@ public class CoachModePage extends BasePage {
 
     public CoachModePage openCoachModePage() {
         new HrefButton(driver, "Coach Mode").click();
-        return new CoachModePage(driver);
+        return this;
     }
 
 }

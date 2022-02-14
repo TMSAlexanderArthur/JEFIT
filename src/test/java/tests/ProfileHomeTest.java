@@ -19,7 +19,7 @@ public class ProfileHomeTest extends BaseTest {
     }
 
     @Test
-    public void changeStatus() throws InterruptedException {
+    public void changeStatusTest() throws InterruptedException {
         loginPage.open()
                 .login();
         profileHomePage.changeStatus();
@@ -29,7 +29,7 @@ public class ProfileHomeTest extends BaseTest {
     }
 
     @Test
-    public void deleteStatus() throws InterruptedException {
+    public void deleteStatusTest() throws InterruptedException {
         loginPage.open()
                 .login();
         profileHomePage.deleteStatus();

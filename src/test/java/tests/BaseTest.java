@@ -38,6 +38,12 @@ public abstract class BaseTest {
     protected SettingsEmailPasswordPage settingsEmailPasswordPage;
     protected SettingsMembershipPage settingsMembershipPage;
     protected SettingsNotificationPrivacyPage settingsNotificationPrivacyPage;
+    protected MyMessagesPage myMessagesPage;
+    protected MyLogsPage myLogsPage;
+    protected MyPhotosPage myPhotosPage;
+    protected MyCustomExercises myCustomExercises;
+    protected MyReportsPage myReportsPage;
+    protected RoutinesPage routinesPage;
 
     @BeforeMethod(description = "Setup and start browser")
     public void setUp(ITestContext context) {
@@ -46,6 +52,7 @@ public abstract class BaseTest {
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
         profileHomePage = new ProfileHomePage(driver);
@@ -66,7 +73,12 @@ public abstract class BaseTest {
         settingsEmailPasswordPage = new SettingsEmailPasswordPage(driver);
         settingsMembershipPage = new SettingsMembershipPage(driver);
         settingsNotificationPrivacyPage = new SettingsNotificationPrivacyPage(driver);
-
+        myMessagesPage = new MyMessagesPage(driver);
+        myLogsPage = new MyLogsPage(driver);
+        myPhotosPage = new MyPhotosPage(driver);
+        myCustomExercises = new MyCustomExercises(driver);
+        myReportsPage = new MyReportsPage(driver);
+        routinesPage = new RoutinesPage(driver);
     }
 
     public boolean isFileDownloaded_Ext(String dirPath, String ext) {
@@ -96,7 +108,6 @@ public abstract class BaseTest {
             }
         }
     }
-
 
     @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {

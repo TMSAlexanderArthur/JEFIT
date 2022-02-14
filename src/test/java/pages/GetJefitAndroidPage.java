@@ -25,7 +25,7 @@ public class GetJefitAndroidPage extends BasePage {
         new HrefButton(driver, "Android App").click();
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
-        return new GetJefitAndroidPage(driver);
+        return this;
     }
 
 }

@@ -3,16 +3,18 @@ package pages;
 import elements.Button;
 import elements.Input;
 import elements.TextArea;
+import lombok.extern.log4j.Log4j2;
 import models.AboutMe;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AboutMePage extends BasePage{
+@Log4j2
+public class AboutMePage extends BasePage {
     public static final By ABOUT_ME_TITLE = By.xpath("//strong[text() = 'About Me']");
 
     @Override
     public boolean isPageOpen() {
+        log.info("About Me page is open");
         return isExist(ABOUT_ME_TITLE);
     }
 
@@ -21,12 +23,13 @@ public class AboutMePage extends BasePage{
         super(driver);
     }
 
-    public AboutMePage open(){
+    public AboutMePage open() {
         driver.get(BASE_URL + "my-jefit/aboutme/");
+        log.info("Open About Me page");
         return this;
     }
 
-    public AboutMePage create(AboutMe aboutMe){
+    public AboutMePage create(AboutMe aboutMe) {
         new Input(driver, "t1").write(aboutMe.getT1());
         new Input(driver, "t2").write(aboutMe.getT2());
         new TextArea(driver, "t3").write(aboutMe.getT3());
@@ -42,10 +45,11 @@ public class AboutMePage extends BasePage{
         new TextArea(driver, "t13").write(aboutMe.getT13());
         new TextArea(driver, "t14").write(aboutMe.getT14());
         new TextArea(driver, "t15").write(aboutMe.getT15());
+        log.info("Create " + aboutMe);
         return clickSave();
     }
 
-    public AboutMePage clearAllFields(){
+    public AboutMePage clearAllFields() {
         new Input(driver, "t1").clear();
         new Input(driver, "t2").clear();
         new TextArea(driver, "t3").clear();
@@ -61,10 +65,11 @@ public class AboutMePage extends BasePage{
         new TextArea(driver, "t13").clear();
         new TextArea(driver, "t14").clear();
         new TextArea(driver, "t15").clear();
+        log.info("Clear all fields in about me and click Save button");
         return clickSave();
     }
 
-    public AboutMePage clickSave(){
+    public AboutMePage clickSave() {
         new Button(driver, "Save").click();
         return new AboutMePage(driver);
     }
