@@ -1,14 +1,15 @@
 package tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Flaky;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
 public class MyPhotosTest extends BaseTest {
 
-    @Test
-    public void openMyPhotosTest() {
+    @Test(description = "Open My Photos")
+    public void myPhotosShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();
@@ -20,8 +21,9 @@ public class MyPhotosTest extends BaseTest {
 
     }
 
-    @Test(description = "Bug: This test fails with Error 403")
-    public void createNewAlbumTest() {
+    @Test(description = "Create new Album")
+    @Flaky
+    public void newAlbumShouldBeCreatedTest() {
         loginPage
                 .open()
                 .login();

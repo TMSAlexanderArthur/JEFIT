@@ -9,8 +9,8 @@ import static org.testng.Assert.assertTrue;
 
 public class LogWorkoutTest extends BaseTest {
 
-    @Test
-    public void addBodyStatsShouldBeCreated() {
+    @Test(description = "Create Body Stats")
+    public void bodyStatsShouldBeCreatedTest() {
         loginPage.open()
                 .login();
         BodyStats bodyStats = BodyStatsFactory.get();
@@ -38,8 +38,8 @@ public class LogWorkoutTest extends BaseTest {
 
     }
 
-    @Test
-    public void sessionSummaryShouldBeCreated() {
+    @Test(description = "Create Session Summary")
+    public void sessionSummaryShouldBeCreatedTest() {
         loginPage.open()
                 .login();
 
@@ -50,8 +50,8 @@ public class LogWorkoutTest extends BaseTest {
         assertTrue(logWorkoutPage.summaryIsCreated(), "Summary is not created");
     }
 
-    @Test
-    public void noteShouldBeCreated() throws InterruptedException {
+    @Test(description = "Create Note")
+    public void noteShouldBeCreatedTest() throws InterruptedException {
         loginPage.open()
                 .login();
         logWorkoutPage.open()
@@ -61,8 +61,8 @@ public class LogWorkoutTest extends BaseTest {
         assertEquals(logWorkoutPage.returnNoteFakerText(), logWorkoutPage.getNoteText(), "The text doesn't match");
     }
 
-    @Test
-    public void weightBodyPartShouldBeOpened() {
+    @Test(description = "Open Weight in Body Part")
+    public void weightBodyPartShouldBeOpenedTest() {
         loginPage.open()
                 .login();
         BodyStats bodyStats = BodyStatsFactory.get();
@@ -78,8 +78,8 @@ public class LogWorkoutTest extends BaseTest {
 
     }
 
-    @Test
-    public void trainingShouldBeOpened() {
+    @Test(description = "Open training")
+    public void trainingShouldBeOpenedTest() {
         loginPage.open()
                 .login();
         boolean trainingIsOpened = logWorkoutPage.moveToTrainingStats()

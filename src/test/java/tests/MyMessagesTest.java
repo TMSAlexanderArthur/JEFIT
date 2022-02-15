@@ -6,8 +6,8 @@ import static org.testng.Assert.assertTrue;
 
 public class MyMessagesTest extends BaseTest {
 
-    @Test
-    public void openMyMessagesTest() {
+    @Test(description = "Open My Messages")
+    public void myMessagesShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();

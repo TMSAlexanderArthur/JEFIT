@@ -1,14 +1,13 @@
 package pages;
 
-import elements.ButtonWithText;
 import elements.HrefButton;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -35,10 +34,13 @@ public class SettingsNotificationPrivacyPage extends BasePage {
     }
 
     @Override
+    @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
+        log.info("Find element --> " + MANAGE_NOTIFICATIONS_TITLE);
         return isExist(MANAGE_NOTIFICATIONS_TITLE);
     }
 
+    @Step("open notification privacy settings")
     public SettingsNotificationPrivacyPage openNotificationPrivacySettings() {
         Actions action = new Actions(driver);
         WebElement we = driver.findElement(MY_JEFIT_SPAN);
@@ -47,6 +49,7 @@ public class SettingsNotificationPrivacyPage extends BasePage {
         return new SettingsNotificationPrivacyPage(driver);
     }
 
+    @Step("Edit notification report")
     public SettingsNotificationPrivacyPage editNotificationsReport() {
         List<WebElement> freqReport = driver.findElements(NOTIFICATIONS_OPTIONS);
         int reportTypeSize = freqReport.size();
@@ -57,6 +60,7 @@ public class SettingsNotificationPrivacyPage extends BasePage {
         return new SettingsNotificationPrivacyPage(driver);
     }
 
+    @Step("Edit privacy settings")
     public SettingsNotificationPrivacyPage editPrivacySettings() {
         List<WebElement> privacy = driver.findElements(PRIVACY_OPTIONS);
         int privacySize = privacy.size();

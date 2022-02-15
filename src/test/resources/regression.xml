@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" name="Test suite" parallel="tests">
-    <test name="test 1">
+<suite thread-count="3" name="Test suite" parallel="tests">
+    <test name="CRUD tests">
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="tests.AboutMeTest"/>
+            <class name="tests.LogWorkoutTest"/>
+            <class name="tests.MyCustomExercisesTest"/>
         </classes>
     </test> <!-- Test -->
+
     <test name="smoke">
         <classes>
-            <class name="tests.WorkoutPlansTest"/>
+            <class name="tests.LoginTest"/>
             <class name="tests.NotificationsTest"/>
+            <class name="tests.CoachModeTest"/>
+            <class name="tests.BlogTest"/>
+            <class name="tests.ExercisesTest"/>
+            <class name="tests.GetEliteTest"/>
+            <class name="tests.GetJefitAppTest"/>
+            <class name="tests.MyMessagesTest"/>
+            <class name="tests.WorkoutPlansTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="critical path">
+        <classes>
+            <class name="tests.FriendsTest"/>
+            <class name="tests.MyLogsTest"/>
+            <class name="tests.MyPhotosTest"/>
+            <class name="tests.MyReportsTest"/>
+            <class name="tests.ProfileHomeTest"/>
+            <class name="tests.RoutineTest"/>
+            <class name="tests.SettingsTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>

@@ -7,8 +7,8 @@ import static org.testng.Assert.assertTrue;
 
 public class ProfileHomeTest extends BaseTest {
 
-    @Test
-    public void uploadPhotoTest() {
+    @Test(description = "Upload Profile Picture")
+    public void photoShoutBeUploadedTest() {
         loginPage.open()
                 .login();
 
@@ -18,8 +18,8 @@ public class ProfileHomeTest extends BaseTest {
         assertTrue(src.contains("avatar"), "Picture not uploaded");
     }
 
-    @Test
-    public void changeStatusTest() throws InterruptedException {
+    @Test(description = "Change status ")
+    public void statusShouldBeChangedTest() throws InterruptedException {
         loginPage.open()
                 .login();
         profileHomePage.changeStatus();
@@ -28,8 +28,8 @@ public class ProfileHomeTest extends BaseTest {
         assertEquals(profileHomePage.getStatusText(), "Status : " + profileHomePage.returnFakerText(), "The text doesn't match");
     }
 
-    @Test
-    public void deleteStatusTest() throws InterruptedException {
+    @Test(description = "Delete status")
+    public void statusShouldBeDeletedTest() throws InterruptedException {
         loginPage.open()
                 .login();
         profileHomePage.deleteStatus();
@@ -37,7 +37,7 @@ public class ProfileHomeTest extends BaseTest {
         assertEquals(profileHomePage.getStatusText(), "Status", "Status is not deleted");
     }
 
-    @Test
+    @Test(description = "Sign out")
     public void signOutTest() {
         loginPage.open()
                 .login();

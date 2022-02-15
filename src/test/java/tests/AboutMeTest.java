@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
 
 public class AboutMeTest extends BaseTest {
 
-    @Test
+    @Test(description = "Create About Me")
     public void aboutMeShouldBeCreatedTest() {
         loginPage.open()
                 .login();

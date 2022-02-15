@@ -6,7 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 public class GetJefitAppTest extends BaseTest {
 
-    @Test
+    @Test(description = "Ios App opened")
     public void getIosAppTest() {
         loginPage
                 .open()
@@ -18,7 +18,7 @@ public class GetJefitAppTest extends BaseTest {
         assertTrue(isAppleStorePageOpened, "Apple Store page hasn't opened");
     }
 
-    @Test
+    @Test(description = "Android App opened")
     public void getAndroidAppTest() {
         loginPage
                 .open()

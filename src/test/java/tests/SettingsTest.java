@@ -7,8 +7,8 @@ import static pages.SettingsNotificationPrivacyPage.*;
 
 public class SettingsTest extends BaseTest {
 
-    @Test
-    public void openProfileAppSettingsTest() {
+    @Test(description = "Open Profile Settings App")
+    public void profileSettingsAppShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();
@@ -20,8 +20,8 @@ public class SettingsTest extends BaseTest {
 
     }
 
-    @Test
-    public void editDataOfBirthTest() {
+    @Test(description = "Edit data of birth")
+    public void dataOfBirthShouldBeEditingTest() {
         loginPage
                 .open()
                 .login();
@@ -43,8 +43,8 @@ public class SettingsTest extends BaseTest {
 
     }
 
-    @Test
-    public void exportMyDataTest() throws InterruptedException {
+    @Test(description = "Export My Data")
+    public void myDataShouldBeExportedTest() throws InterruptedException {
         loginPage
                 .open()
                 .login();
@@ -63,8 +63,8 @@ public class SettingsTest extends BaseTest {
         deleteAllFilesFromDirectory();
     }
 
-    @Test
-    public void openEmailPasswordSettingsTest() {
+    @Test(description = "Open Email Password Settings page")
+    public void emailPasswordSettingsShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();
@@ -76,8 +76,8 @@ public class SettingsTest extends BaseTest {
 
     }
 
-    @Test
-    public void membershipIsRegularTest() {
+    @Test(description = "Open Member Ship Settings page")
+    public void memberShipSettingsShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();
@@ -89,7 +89,7 @@ public class SettingsTest extends BaseTest {
         assertEquals(settingsMembershipPage.getAccountType(), "Account Type : Regular", "Type of account doesn't match");
     }
 
-    @Test
+    @Test(description = "Manage Notifications ")
     public void manageNotificationsTest() {
         loginPage
                 .open()
@@ -104,7 +104,7 @@ public class SettingsTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "Manage Privacy")
     public void managePrivacyTest() {
         loginPage
                 .open()

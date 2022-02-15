@@ -6,8 +6,8 @@ import static org.testng.Assert.assertTrue;
 
 public class WorkoutPlansTest extends BaseTest {
 
-    @Test
-    public void openWorkoutPlans() {
+    @Test(description = "Open Workout Plans")
+    public void workoutPlansShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();

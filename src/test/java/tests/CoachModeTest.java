@@ -6,8 +6,8 @@ import static org.testng.Assert.assertTrue;
 
 public class CoachModeTest extends BaseTest {
 
-    @Test
-    public void openCoachModePageTest() {
+    @Test(description = "Open Coach Mode page")
+    public void coachModePageShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();

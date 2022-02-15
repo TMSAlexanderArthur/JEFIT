@@ -6,8 +6,8 @@ import static org.testng.Assert.assertTrue;
 
 public class GetEliteTest extends BaseTest {
 
-    @Test
-    public void openGetElitePageTest() {
+    @Test(description = "Open Get Elite page")
+    public void getElitePageShouldBeAddedTest() {
         loginPage
                 .open()
                 .login();

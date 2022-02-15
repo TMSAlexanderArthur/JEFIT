@@ -9,8 +9,8 @@ import static org.testng.Assert.assertTrue;
 
 public class MyCustomExercisesTest extends BaseTest {
 
-    @Test
-    public void openMyCustomExerciseTest() {
+    @Test(description = "Open My Custom Exercise")
+    public void myCustomExerciseShouldBeOpenedTest() {
         loginPage
                 .open()
                 .login();
@@ -22,8 +22,8 @@ public class MyCustomExercisesTest extends BaseTest {
 
     }
 
-    @Test(description = "")
-    public void createNewCustomExerciseTest() {
+    @Test(description = "Create new Custom Exercise")
+    public void newCustomExerciseShouldBeCreatedTest() {
         loginPage
                 .open()
                 .login();
@@ -44,8 +44,8 @@ public class MyCustomExercisesTest extends BaseTest {
         assertEquals(myCustomExercises.getCreatedExerciseName(), customExercise.getExerciseName(), "Name of the Exercise doesn't match");
     }
 
-    @Test(description = "")
-    public void editNewCustomExerciseTest() {
+    @Test(description = "Edit new Custom Exercise")
+    public void newCustomExerciseShouldBeEditingTest() {
         loginPage
                 .open()
                 .login();
@@ -70,8 +70,8 @@ public class MyCustomExercisesTest extends BaseTest {
 
 
 
-    @Test(description = "")
-    public void deleteCustomExerciseTest() {
+    @Test(description = "Delete Custom Exercise")
+    public void customExerciseShouldBeDeletedTest() {
         loginPage
                 .open()
                 .login();

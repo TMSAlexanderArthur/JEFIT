@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test
+    @Test(description = "Log in with valid data")
     public void loginTest() {
         boolean isProfilePageOpened = loginPage.open()
                 .login()
@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
         assertTrue(isProfilePageOpened, "Page hasn't opened");
     }
 
-    @Test(dataProvider = "incorrectLoginTest")
+    @Test(dataProvider = "incorrectLoginTest", description = "Attempting to log in using incorrect data")
     public void negativeLoginTest(String login, String password, String errorMessage) {
         loginPage
                 .open()

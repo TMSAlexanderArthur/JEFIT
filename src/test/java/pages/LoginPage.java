@@ -2,6 +2,7 @@ package pages;
 
 import elements.Button;
 import elements.Input;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,17 +20,20 @@ public class LoginPage extends BasePage {
     }
 
     @Override
+    @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
-        log.info("Page is opened");
+        log.info("Find element --> " + LOGIN_BUTTON);
         return isExist(LOGIN_BUTTON);
     }
 
+    @Step("Open Login page")
     public LoginPage open() {
         driver.get(BASE_URL + "login/");
         log.info("Open Login page");
         return this;
     }
 
+    @Step("Log in with valid email and password")
     public ProfileHomePage login() {
         new Input(driver, "vb_login_username").write(email);
         new Input(driver, "vb_login_password").write(password);
@@ -38,6 +42,7 @@ public class LoginPage extends BasePage {
         return new ProfileHomePage(driver);
     }
 
+    @Step("Log in with wrong email or password")
     public LoginPage loginWithsWrongData(String login, String password) {
         new Input(driver, "vb_login_username").write(login);
         new Input(driver, "vb_login_password").write(password);
@@ -48,8 +53,9 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("Get error message ")
     public String getErrorMessage() {
-        log.info("Get the error text");
+        log.info("Get the error text by " + ERROR_MESSAGE);
         return driver.findElement(ERROR_MESSAGE).getText();
     }
 

@@ -7,8 +7,8 @@ import static org.testng.Assert.assertTrue;
 
 public class RoutineTest extends BaseTest {
 
-    @Test
-    public void routineShouldBeCreated() {
+    @Test(description = "Create Routine")
+    public void routineShouldBeCreatedTest() {
         loginPage.open()
                 .login();
 
@@ -23,8 +23,8 @@ public class RoutineTest extends BaseTest {
         routinesPage.deleteRoutine();
     }
 
-    @Test
-    public void routineShouldBeEditing() {
+    @Test(description = "Edit Routine")
+    public void routineShouldBeEditingTest() {
         loginPage.open()
                 .login();
         String createdRoutineName = routinesPage.open()
@@ -41,8 +41,8 @@ public class RoutineTest extends BaseTest {
         routinesPage.deleteRoutine();
     }
 
-    @Test
-    public void Routine5x5ShouldBeDownloaded() {
+    @Test(description = "Click download 5x5 Routine")
+    public void Routine5x5ShouldBeDownloadedTest() {
         loginPage.open()
                 .login();
         routinesPage.open()
@@ -55,8 +55,8 @@ public class RoutineTest extends BaseTest {
         routinesPage.deleteRoutine();
     }
 
-    @Test
-    public void routineShouldBeDeleted() {
+    @Test(description = "Delete Routine")
+    public void routineShouldBeDeletedTest() {
         loginPage.open()
                 .login();
         routinesPage.open()
@@ -69,8 +69,8 @@ public class RoutineTest extends BaseTest {
 
     }
 
-    @Test
-    public void sharedWithMeTabShouldBeOpened() {
+    @Test(description = "Open Shared With Me tab")
+    public void sharedWithMeTabShouldBeOpenedTest() {
         loginPage.open()
                 .login();
         String sharedWithMeUrl = routinesPage.open()
@@ -80,8 +80,8 @@ public class RoutineTest extends BaseTest {
         assertEquals(sharedWithMeUrl, "https://www.jefit.com//my-jefit/my-routines/shared-with-me.php", "The url doesn't match");
     }
 
-    @Test
-    public void mySubmitsTabShouldBeOpened() {
+    @Test(description = "Open My Submits Tab")
+    public void mySubmitsTabShouldBeOpenedTest() {
         loginPage.open()
                 .login();
 

@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import elements.Button;
 import elements.HrefButton;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,21 +28,26 @@ public class ProfileHomePage extends BasePage {
     }
 
     @Override
+    @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
+        log.info("Find element --> " + PROFILE_PIC);
         return isExist(PROFILE_PIC);
     }
 
+    @Step("Delete status")
     public void deleteStatus() {
         new Button(driver, "Post").click();
         log.info("Delete status");
     }
 
+    @Step("Edit status")
     public void changeStatus() {
         new TextArea(driver, "statusinputbox").write(text);
         new Button(driver, "Post").click();
         log.info("Change status");
     }
 
+    @Step("Sign out")
     public LoginPage signOut() {
         Actions action = new Actions(driver);
         WebElement we = driver.findElement(MY_JEFIT_SPAN);
@@ -50,18 +56,21 @@ public class ProfileHomePage extends BasePage {
         return new LoginPage(driver);
     }
 
+    @Step("Get faker text")
     public String returnFakerText() {
         log.info("Return text : " + text);
         return text;
     }
 
+    @Step("Get status text")
     public String getStatusText() throws InterruptedException {
         Thread.sleep(3000);
         log.debug("Sleep 3 seconds");
-        log.info("Get status text");
+        log.info("Get status text by " + STATUS_TEXT);
         return driver.findElement(STATUS_TEXT).getText();
     }
 
+    @Step("Upload profile page")
     public void uploadProfilePic() {
         new HrefButton(driver, "Edit").click();
         File file = new File("src/test/resources/filesToUpload/qa-2-min (1).png");
@@ -70,6 +79,7 @@ public class ProfileHomePage extends BasePage {
         new Button(driver, "Upload Photo").click();
     }
 
+    @Step("Make sure the profile picture is uploaded")
     public String fileIsUploaded() {
         WebElement img = driver.findElement(PROFILE_PIC);
         log.info("File is uploaded");

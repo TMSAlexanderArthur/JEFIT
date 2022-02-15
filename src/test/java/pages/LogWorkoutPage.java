@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import elements.HrefButton;
 import elements.IdButton;
 import elements.Input;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.BodyStats;
 import org.openqa.selenium.By;
@@ -30,7 +31,9 @@ public class LogWorkoutPage extends BasePage {
     String bodyStatsFieldValue = "//strong[text()=' %s : ']/parent::a";
 
     @Override
+    @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
+        log.info("Find element --> " + SESSION_SUMMARY_TITLE);
         return isExist(SESSION_SUMMARY_TITLE);
     }
 
@@ -38,17 +41,20 @@ public class LogWorkoutPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open Log Workout page")
     public LogWorkoutPage open() {
         driver.findElement(LOG_WORKOUT_BUTTON).click();
-        log.info("Open Log Workout Page");
+        log.info("Open Log Workout Page by " + LOG_WORKOUT_BUTTON);
         return this;
     }
 
+    @Step("Get text by faker")
     public String returnNoteFakerText() {
         log.info("Return text : " + text);
         return text;
     }
 
+    @Step("Get Note value")
     public String getNoteText() throws InterruptedException {
         Thread.sleep(3000);
         log.debug("Sleep 3 seconds");
@@ -57,39 +63,46 @@ public class LogWorkoutPage extends BasePage {
         return value[1].trim();
     }
 
+    @Step("Create Note")
     public LogWorkoutPage createNote() {
         driver.findElement(NOTE_TEXT_AREA).sendKeys(text);
-        log.info("Write " + text + " into Note Text Area");
+        log.info("Write " + text + " into Note Text Area by " + NOTE_TEXT_AREA);
         driver.findElement(CREATE_NOTE_BUTTON).click();
-        log.info("Click Create Note button");
+        log.info("Click Create Note button by " + CREATE_NOTE_BUTTON);
         return this;
     }
 
+    @Step("Delete body stats")
     public void deleteBodyStats() {
         new IdButton(driver, "delete-body-stats").click();
     }
 
+    @Step("Click Add Body Stats Button")
     public LogWorkoutPage clickAddBodyStatsButton() {
         new IdButton(driver, "edit-body-stats").click();
         return this;
     }
 
+    @Step("Click Add Session Summary button")
     public LogWorkoutPage clickAddSessionSummaryButton() {
         new IdButton(driver, "add-session").click();
         return this;
     }
 
+    @Step("Click Notes Add button")
     public LogWorkoutPage clickNotesAddButton() {
         new IdButton(driver, "add-note").click();
         return this;
     }
 
+    @Step("Make sure the Summary is created")
     public boolean summaryIsCreated() {
+        log.info("Find element --> " + SUMMARY_IS_CREATED);
         return driver.findElement(SUMMARY_IS_CREATED).isDisplayed();
     }
 
+    @Step("Create {bodyStats}")
     public LogWorkoutPage createBodyStats(BodyStats bodyStats) {
-
         new Input(driver, "weight").write(bodyStats.getWeight());
         new Input(driver, "fatpercent").write(bodyStats.getBodyFat());
         new Input(driver, "height").write(bodyStats.getHeight());
@@ -106,8 +119,8 @@ public class LogWorkoutPage extends BasePage {
         return clickDoneBodyStats();
     }
 
+    @Step("Create Session Summary")
     public LogWorkoutPage createSessionSummary() {
-
         int randomHourStart = ThreadLocalRandom.current().nextInt(0, 24);
         int randomHourEnd = ThreadLocalRandom.current().nextInt(0, 24);
         int randomMinStart = ThreadLocalRandom.current().nextInt(0, 60);
@@ -128,12 +141,14 @@ public class LogWorkoutPage extends BasePage {
         return clickCreateSummaryButton();
     }
 
+    @Step("Open Weight page")
     public LogWorkoutPage moveIntoAWeightBodyPart() {
         driver.findElement(WEIGHT_BODY_STATS_BUTTON).click();
-        log.info("Click on WEIGHT element");
+        log.info("Click on WEIGHT element by " + WEIGHT_BODY_STATS_BUTTON);
         return this;
     }
 
+    @Step("Make sure the weight is opened and back to the Log Workout Page")
     public boolean weightIsOpenedAndBackToTheLogWorkoutPage() {
         boolean weightIsOpened = driver.findElement(WEIGHT_IS_OPENED).isDisplayed();
         log.info("Text \"Body stat progress: weight( lbs):\" found on page");
@@ -142,29 +157,33 @@ public class LogWorkoutPage extends BasePage {
         return weightIsOpened;
     }
 
-
+    @Step("Get text at field {fieldName} ")
     public String getBodyStatsValue(String fieldName) {
         log.info("Return the text from the field - " + fieldName);
         return driver.findElement(By.xpath(String.format(bodyStatsFieldValue, fieldName))).getText().replaceAll("[^0-9]", "");
     }
 
+    @Step("Click Create Summary button ")
     public LogWorkoutPage clickCreateSummaryButton() {
         driver.findElement(CREATE_SUMMARY_BUTTON).click();
-        log.info("Click Create Summary button");
+        log.info("Click Create Summary button by " + CREATE_SUMMARY_BUTTON);
         return this;
     }
 
+    @Step("Click Done Body Status Button")
     public LogWorkoutPage clickDoneBodyStats() {
         new IdButton(driver, "submit-body-stats").click();
         return this;
     }
 
+    @Step("Move to Training Stats")
     public LogWorkoutPage moveToTrainingStats() {
         new HrefButton(driver, "Training Stats").click();
         new HrefButton(driver, "Barbell Bench Press").click();
         return this;
     }
 
+    @Step("Make sure the Training is opened")
     public boolean trainingIsOpened() {
         log.info("Text \"Mark your favorite exercise. (Click again to undo)\" found on Training page");
         return driver.findElement(TRAINING_IS_OPENED).isDisplayed();

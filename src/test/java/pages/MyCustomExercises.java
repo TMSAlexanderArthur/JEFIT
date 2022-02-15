@@ -1,8 +1,8 @@
 package pages;
 
-import com.github.javafaker.Faker;
 import elements.Input;
 import elements.SelectDropdown;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.CustomExercise;
 import org.openqa.selenium.By;
@@ -32,15 +32,20 @@ public class MyCustomExercises extends BasePage {
     }
 
     @Override
+    @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
+        log.info("Find element --> " + CREATE_CUSTOMER_EXERCISE_TITLE);
         return isExist(CREATE_CUSTOMER_EXERCISE_TITLE);
     }
 
+    @Step("Open My Custom Exercises")
     public MyCustomExercises openMyCustomExercises() {
         driver.findElement(MY_CUSTOM_EXERCISES_TAB).click();
+        log.info("Click on My Custom Exercise tab by " + MY_CUSTOM_EXERCISES_TAB);
         return new MyCustomExercises(driver);
     }
 
+    @Step("Create {customExercise}")
     public MyCustomExercises createNewCustomExercise(CustomExercise customExercise) {
         new Input(driver, "newename").write(customExercise.getExerciseName());
 
@@ -75,6 +80,7 @@ public class MyCustomExercises extends BasePage {
         return clickSave();
     }
 
+    @Step("Edit {customExercise}")
     public MyCustomExercises editCustomExercise(CustomExercise customExercise) {
         new Input(driver, "newename").clear();
         new Input(driver, "newename").write(customExercise.getExerciseName());
@@ -110,36 +116,42 @@ public class MyCustomExercises extends BasePage {
         return clickSave();
     }
 
+    @Step("Click Save button")
     public MyCustomExercises clickSave() {
-        log.info(">>>>>>>Click on the save new exercise button");
+        log.info("Click on the save new exercise button");
         new Input(driver, "Submit").click();
         return new MyCustomExercises(driver);
     }
 
+    @Step("Get created Exercise name")
     public String getCreatedExerciseName() {
-        log.info(">>>>>>>Get create exercise name");
+        log.info("Get create exercise name by " + CREATED_EXERCISE_NAME);
         return driver.findElement(CREATED_EXERCISE_NAME).getText();
     }
 
+    @Step("Get cempty exercise list")
     public String getEmptyExercisesList() {
-        log.info(">>>>>>>Get empty exercises list");
+        log.info("Get empty exercises list by " + EMPTY_EXERCISE_LIST);
         return driver.findElement(EMPTY_EXERCISE_LIST).getText();
     }
 
+    @Step("Click Edit button")
     public MyCustomExercises clickEdit() {
-        log.info(">>>>>>>Click on the edit exercise button");
+        log.info("Click on the edit exercise button by " + EDIT_BUTTON);
         driver.findElement(EDIT_BUTTON).click();
         return new MyCustomExercises(driver);
     }
 
+    @Step("Click Main Edit button")
     public MyCustomExercises clickMainEdit() {
-        log.info(">>>>>>>Click on the edit exercise button");
+        log.info("Click on the edit exercise button by " + EDIT_MAIN_BUTTON);
         driver.findElement(EDIT_MAIN_BUTTON).click();
         return new MyCustomExercises(driver);
     }
 
+    @Step("Click Delete exercise button")
     public MyCustomExercises clickDelete() {
-        log.info(">>>>>>>Click on the delete exercise button");
+        log.info("Click on the delete exercise button by " + DELETE_BUTTON);
         driver.findElement(DELETE_BUTTON).click();
         return new MyCustomExercises(driver);
     }

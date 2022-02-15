@@ -3,6 +3,7 @@ package pages;
 import elements.Button;
 import elements.Input;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.AboutMe;
 import org.openqa.selenium.By;
@@ -13,8 +14,9 @@ public class AboutMePage extends BasePage {
     public static final By ABOUT_ME_TITLE = By.xpath("//strong[text() = 'About Me']");
 
     @Override
+    @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
-        log.info("About Me page is open");
+        log.info("Find element --> " + ABOUT_ME_TITLE);
         return isExist(ABOUT_ME_TITLE);
     }
 
@@ -23,12 +25,14 @@ public class AboutMePage extends BasePage {
         super(driver);
     }
 
+    @Step("Open About 'Me page'")
     public AboutMePage open() {
         driver.get(BASE_URL + "my-jefit/aboutme/");
         log.info("Open About Me page");
         return this;
     }
 
+    @Step("Create {aboutMe}")
     public AboutMePage create(AboutMe aboutMe) {
         new Input(driver, "t1").write(aboutMe.getT1());
         new Input(driver, "t2").write(aboutMe.getT2());
@@ -49,6 +53,7 @@ public class AboutMePage extends BasePage {
         return clickSave();
     }
 
+    @Step("Clear all fields in 'about me'")
     public AboutMePage clearAllFields() {
         new Input(driver, "t1").clear();
         new Input(driver, "t2").clear();
@@ -69,6 +74,7 @@ public class AboutMePage extends BasePage {
         return clickSave();
     }
 
+    @Step("Click 'Save' button")
     public AboutMePage clickSave() {
         new Button(driver, "Save").click();
         return new AboutMePage(driver);

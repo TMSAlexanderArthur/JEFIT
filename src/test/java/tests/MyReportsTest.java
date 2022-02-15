@@ -7,8 +7,8 @@ import static org.testng.Assert.assertTrue;
 
 public class MyReportsTest extends BaseTest{
 
-    @Test
-    public void overallReportsShouldBeOpened(){
+    @Test(description = "Open Overall Reports")
+    public void overallReportsShouldBeOpenedTest(){
         loginPage.open()
                 .login();
         boolean overallReportsIsOpened = myReportsPage.overallReportsOpen()
@@ -17,8 +17,8 @@ public class MyReportsTest extends BaseTest{
         assertTrue(overallReportsIsOpened, "page is not opened");
     }
 
-    @Test
-    public void barbellSquatInOverallReportsShouldBeOpened(){
+    @Test(description = "Open Barbell Squat in Overall Reports")
+    public void barbellSquatInOverallReportsShouldBeOpenedTest(){
         loginPage.open()
                 .login();
 
@@ -28,8 +28,8 @@ public class MyReportsTest extends BaseTest{
         assertEquals(barbellSquatText, "Barbell Squat Images", "The text doesn't match");
     }
 
-    @Test
-    public void neckInBodyProgressShouldBeOpened(){
+    @Test(description = "Open Neck in Body Progress")
+    public void neckInBodyProgressShouldBeOpenedTest(){
         loginPage.open()
                 .login();
 
@@ -39,8 +39,8 @@ public class MyReportsTest extends BaseTest{
         assertEquals(neckText, "Body stat progress: neck( inches):", "The text doesn't match");
     }
 
-    @Test
-    public void compareBodyShouldBeOpened(){
+    @Test(description = "Open Compare Body")
+    public void compareBodyShouldBeOpenedTest(){
         loginPage.open()
                 .login();
 
