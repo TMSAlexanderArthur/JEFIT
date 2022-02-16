@@ -34,9 +34,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>
-                    <forkCount>1</forkCount>
-                    <reuseForks>true</reuseForks>
+                         <suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>                   
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar -Xmx256m
                     </argLine>
