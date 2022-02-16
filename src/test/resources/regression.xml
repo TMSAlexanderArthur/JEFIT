@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="3" name="Test suite" parallel="tests">
-    <test name="CRUD tests">
+    <test name="Stream 1">
         <classes>
             <class name="tests.AboutMeTest"/>
             <class name="tests.LogWorkoutTest"/>
             <class name="tests.MyCustomExercisesTest"/>
+            <class name="tests.RoutineTest"/>
         </classes>
     </test> <!-- Test -->
 
-    <test name="smoke">
+    <test name="Stream 2">
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.NotificationsTest"/>
@@ -20,17 +21,16 @@
             <class name="tests.GetJefitAppTest"/>
             <class name="tests.MyMessagesTest"/>
             <class name="tests.WorkoutPlansTest"/>
+            <class name="tests.MyPhotosTest"/>
+            <class name="tests.MyLogsTest"/>
         </classes>
     </test> <!-- Test -->
 
-    <test name="critical path">
+    <test name="Stream 3">
         <classes>
             <class name="tests.FriendsTest"/>
-            <class name="tests.MyLogsTest"/>
-            <class name="tests.MyPhotosTest"/>
             <class name="tests.MyReportsTest"/>
             <class name="tests.ProfileHomeTest"/>
-            <class name="tests.RoutineTest"/>
             <class name="tests.SettingsTest"/>
         </classes>
     </test> <!-- Test -->

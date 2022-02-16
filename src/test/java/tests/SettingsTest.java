@@ -59,7 +59,7 @@ public class SettingsTest extends BaseTest {
                 .isPageOpen();
         assertTrue(isAfterDownloadSettingsPageOpened, "Profile App Settings page hasn't opened");
 
-        assertTrue(isFileDownloaded_Ext(downloadPath, ".csv"), "Failed to download document which has extension .csv");
+        assertTrue(isFileDownloaded_Ext(downloadPath, "Test"), "Failed to download document which has extension .csv");
         deleteAllFilesFromDirectory();
     }
 

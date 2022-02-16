@@ -21,6 +21,7 @@
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>5.0.0</webdrivermanager.version>
         <allure-testng.version>2.13.9</allure-testng.version>
+        <suiteXmlFiles>src/test/resources/regression.xml</suiteXmlFiles>
 
     </properties>
 
@@ -33,6 +34,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+                    <suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>
+                    <forkCount>3</forkCount>
+                    <reuseForks>true</reuseForks>
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar -Xmx256m
                     </argLine>

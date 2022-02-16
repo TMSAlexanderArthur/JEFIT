@@ -144,7 +144,6 @@ public class SettingsProfileAppPage extends BasePage {
         WebElement exportDataButton = driver.findElement(EXPORT_DATA_BUTTON);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click()", exportDataButton);
-        Thread.sleep(4000);
         return new SettingsProfileAppPage(driver);
     }
 

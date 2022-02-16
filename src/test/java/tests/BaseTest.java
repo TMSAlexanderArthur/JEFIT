@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,11 +13,13 @@ import pages.*;
 import utils.TestListener;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 @Listeners(TestListener.class)
 public abstract class BaseTest {
-    public static String downloadPath = "C:\\Users\\Admin\\Downloads";
+    public static String downloadPath = System.getProperty("user.dir") + "\\src\\test\\resources\\filesForDownload";
 
     protected WebDriver driver;
     protected LoginPage loginPage;
@@ -48,9 +51,14 @@ public abstract class BaseTest {
     @BeforeMethod(description = "Setup and start browser")
     public void setUp(ITestContext context) {
         WebDriverManager.chromedriver().setup();
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("profile.default_content_settings.popups", 0);
+        chromePrefs.put("download.prompt_for_download", "false");
+        chromePrefs.put("download.default_directory", downloadPath);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("--start-maximized");
+        options.setExperimentalOption("prefs", chromePrefs);
+
+        options.addArguments("--window-size=1920,1080");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
@@ -83,19 +91,20 @@ public abstract class BaseTest {
     }
 
     public boolean isFileDownloaded_Ext(String dirPath, String ext) {
-        boolean flag = false;
-        File dir = new File(dirPath);
-        File[] files = dir.listFiles();
-        if (files == null || files.length == 0) {
-            flag = false;
-        }
+        int wait = 15000;
+        boolean fileIsNotReady = true;
 
-        for (int i = 1; i < files.length; i++) {
-            if (files[i].getName().contains(ext)) {
-                flag = true;
+        File folder = new File(dirPath);
+        File[] listOfFiles = folder.listFiles();
+
+        while (wait != 0 && fileIsNotReady) {
+            listOfFiles = folder.listFiles();
+            wait -= 100;
+            if (listOfFiles.length != 0 && listOfFiles[0].getName().equals(ext)) {
+                fileIsNotReady = false;
             }
         }
-        return flag;
+        return fileIsNotReady;
     }
 
     public void deleteAllFilesFromDirectory() {
