@@ -29,8 +29,8 @@ jobs:
       - store_test_results:
           path: target/surefire-reports/junitreports
           when: always
-#      - store_artifacts:
-#          path: target/site/allure-maven-plugin/
+      - store_artifacts:
+          path: target/site/allure-maven-plugin/
 workflows:
   version: 2
   commit:
