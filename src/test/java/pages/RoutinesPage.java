@@ -19,6 +19,8 @@ public class RoutinesPage extends BasePage {
     public static final By SHARED_WITH_ME_TAB = By.xpath("//a[@href = './shared-with-me.php']");
     public static final By MY_SUBMITS_TAB = By.xpath("//a[@href = './my-submits.php']");
     public static final By PROFILE_EDIT_TAB = By.xpath("//div[@class = 'profile-edit tab-pane active']");
+    public static final By COUNT_ROUTINE = By.xpath("//td[normalize-space()='0/20 Routines Created']");
+
 
     String text = faker.cat().name();
 
@@ -92,8 +94,10 @@ public class RoutinesPage extends BasePage {
         driver.findElement(DELETE_ROUTINE_BUTTON).click();
         log.info("Click delete routine button by " + DELETE_ROUTINE_BUTTON);
         Alert alert = driver.switchTo().alert();
+        wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
         log.info("Switch to alert and accept");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(COUNT_ROUTINE))
         return this;
     }
 
