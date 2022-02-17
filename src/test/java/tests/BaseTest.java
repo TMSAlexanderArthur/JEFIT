@@ -57,8 +57,6 @@ public abstract class BaseTest {
         chromePrefs.put("download.default_directory", downloadPath);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
-
-        options.addArguments("--start-maximized");
         options.addArguments("--window-size=1920,1080");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

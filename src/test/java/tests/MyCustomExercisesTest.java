@@ -42,6 +42,8 @@ public class MyCustomExercisesTest extends BaseTest {
 
         assertTrue(isMyEditedExercisePageOpened, "New Custom Exercise hasn't created");
         assertEquals(myCustomExercises.getCreatedExerciseName(), customExercise.getExerciseName(), "Name of the Exercise doesn't match");
+        myCustomExercises
+                .clickDelete();
     }
 
     @Test(description = "Edit new Custom Exercise")
@@ -58,16 +60,16 @@ public class MyCustomExercisesTest extends BaseTest {
         CustomExercise customExercise = CustomExerciseFactory.get();
 
         myCustomExercises
-                .clickMainEdit()
+                .createNewCustomExercise(customExercise)
                 .clickEdit()
                 .editCustomExercise(customExercise);
         boolean isMyEditedExercisePageOpened = myCustomExercises
                 .isPageOpen();
-
         assertTrue(isMyEditedExercisePageOpened, "Custom Exercise hasn't edited");
         assertEquals(myCustomExercises.getCreatedExerciseName(), customExercise.getExerciseName(), "Name of the Exercise doesn't match");
+        myCustomExercises
+                .clickDelete();
     }
-
 
 
     @Test(description = "Delete Custom Exercise")
@@ -81,8 +83,10 @@ public class MyCustomExercisesTest extends BaseTest {
 
         assertTrue(isMyCustomExercisePageOpened, "My Custom Exercise page hasn't opened");
 
+        CustomExercise customExercise = CustomExerciseFactory.get();
+
         myCustomExercises
-                .clickMainEdit()
+                .createNewCustomExercise(customExercise)
                 .clickDelete();
         assertEquals(myCustomExercises.getEmptyExercisesList(), "", "Exercise hasn't deleted");
     }
