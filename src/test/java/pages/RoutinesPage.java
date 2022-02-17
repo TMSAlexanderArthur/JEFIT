@@ -97,7 +97,7 @@ public class RoutinesPage extends BasePage {
         wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
         log.info("Switch to alert and accept");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(COUNT_ROUTINE))
+        wait.until(ExpectedConditions.visibilityOfElementLocated(COUNT_ROUTINE));
         return this;
     }
 
