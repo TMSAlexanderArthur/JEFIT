@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
 public class NotificationsPage extends BasePage {
@@ -21,6 +22,7 @@ public class NotificationsPage extends BasePage {
     @Step("Find element to make sure the page is open")
     public boolean isPageOpen() {
         log.info("Find element --> " + NOTIFICATIONS_TITLE);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(NOTIFICATIONS_TITLE));
         return isExist(NOTIFICATIONS_TITLE);
     }
 

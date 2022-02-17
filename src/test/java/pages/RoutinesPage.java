@@ -91,6 +91,7 @@ public class RoutinesPage extends BasePage {
 
     @Step("Delete routine")
     public RoutinesPage deleteRoutine() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(DELETE_ROUTINE_BUTTON));
         driver.findElement(DELETE_ROUTINE_BUTTON).click();
         log.info("Click delete routine button by " + DELETE_ROUTINE_BUTTON);
         Alert alert = driver.switchTo().alert();
