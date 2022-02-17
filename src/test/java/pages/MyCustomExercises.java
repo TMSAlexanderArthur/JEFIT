@@ -142,13 +142,6 @@ public class MyCustomExercises extends BasePage {
         return new MyCustomExercises(driver);
     }
 
-    @Step("Click Main Edit button")
-    public MyCustomExercises clickMainEdit() {
-        log.info("Click on the edit exercise button by " + EDIT_MAIN_BUTTON);
-        driver.findElement(EDIT_MAIN_BUTTON).click();
-        return new MyCustomExercises(driver);
-    }
-
     @Step("Click Delete exercise button")
     public MyCustomExercises clickDelete() {
         log.info("Click on the delete exercise button by " + DELETE_BUTTON);
