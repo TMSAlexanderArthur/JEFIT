@@ -9,11 +9,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static pages.NotificationsPage.MY_JEFIT_SPAN;
 
 @Log4j2
 public class FriendsPage extends BasePage {
-    public static final By FRIENDS_SPAN = By.xpath("//span[text()='Friends']");
+    public static final By FRIENDS_SPAN = By.xpath("//li[contains(text(),'0')]");
     public static final By MY_FRIENDS_TITLE = By.xpath("//div[@id='friendsListTab']");
     public static final By CONTENT_BOX_TEXT = By.xpath("//div[@class='contentBox']/div[contains(@style, 'text')]");
 
@@ -45,8 +44,7 @@ public class FriendsPage extends BasePage {
     public FriendsPage openMyFriends() {
         Actions action = new Actions(driver);
         log.info("Initialize a new Action ");
-        WebElement we = driver.findElement(MY_JEFIT_SPAN);
-        action.moveToElement(we).moveToElement(driver.findElement(FRIENDS_SPAN)).click().build().perform();
+        driver.findElement(FRIENDS_SPAN).click();
         log.info("Moving the cursor to an element " + FRIENDS_SPAN + " and click");
         return this;
     }
