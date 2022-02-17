@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -46,6 +47,7 @@ public class SettingsNotificationPrivacyPage extends BasePage {
         WebElement we = driver.findElement(MY_JEFIT_SPAN);
         action.moveToElement(we).moveToElement(driver.findElement(SETTINGS_SPAN)).click().build().perform();
         new HrefButton(driver, "Notification / Privacy").click();
+
         return new SettingsNotificationPrivacyPage(driver);
     }
 
@@ -57,6 +59,7 @@ public class SettingsNotificationPrivacyPage extends BasePage {
         freqReport.get(randomReportType).click();
         driver.findElement(SAVE_NOTIFICATION_CHANGES).click();
         new HrefButton(driver, "Notification / Privacy").click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MANAGE_NOTIFICATIONS_TITLE));
         return new SettingsNotificationPrivacyPage(driver);
     }
 

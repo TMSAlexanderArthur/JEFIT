@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -136,6 +137,7 @@ public class SettingsProfileAppPage extends BasePage {
     @Step("Save data of birth")
     public SettingsProfileAppPage saveDataOfBirth() {
         new ButtonWithText(driver, "Save Profile").clickButtonWithText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_PROFILE_BUTTON));
         return new SettingsProfileAppPage(driver);
     }
 

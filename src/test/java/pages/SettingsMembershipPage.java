@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static pages.NotificationsPage.MY_JEFIT_SPAN;
 import static pages.SettingsProfileAppPage.SETTINGS_SPAN;
@@ -14,6 +15,7 @@ import static pages.SettingsProfileAppPage.SETTINGS_SPAN;
 @Log4j2
 public class SettingsMembershipPage extends BasePage {
     public static final By ACCOUNT_TYPE = By.xpath("//div[@style='font-size: 18px;']");
+    public static final By MEMBERSHIP_PAGE_TITLE = By.xpath("//h2[text()='Manage your membership']");
 
     public SettingsMembershipPage(WebDriver driver) {
         super(driver);
@@ -32,6 +34,7 @@ public class SettingsMembershipPage extends BasePage {
         WebElement we = driver.findElement(MY_JEFIT_SPAN);
         action.moveToElement(we).moveToElement(driver.findElement(SETTINGS_SPAN)).click().build().perform();
         new HrefButton(driver, "Membership Settings").click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MEMBERSHIP_PAGE_TITLE));
         return new SettingsMembershipPage(driver);
     }
 
