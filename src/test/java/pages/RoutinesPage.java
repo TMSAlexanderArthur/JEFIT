@@ -94,8 +94,8 @@ public class RoutinesPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(DELETE_ROUTINE_BUTTON));
         driver.findElement(DELETE_ROUTINE_BUTTON).click();
         log.info("Click delete routine button by " + DELETE_ROUTINE_BUTTON);
-        Alert alert = driver.switchTo().alert();
         wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
         alert.accept();
         log.info("Switch to alert and accept");
         wait.until(ExpectedConditions.visibilityOfElementLocated(COUNT_ROUTINE));
